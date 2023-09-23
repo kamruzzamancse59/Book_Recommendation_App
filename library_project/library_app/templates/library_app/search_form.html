@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Search</title>
+</head>
+<body>
+    <h1>Book Recommendation App </h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="search_query">Search for books:</label>
+        <input type="text" id="search_query" name="search_query">
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author }} (ISBN: {{ book.isbn }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
